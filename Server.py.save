@@ -20,13 +20,13 @@ def serve(version, number, answer):
 	assert int(number) <= (number_of_questions + 1)
 	assert int(number) > 0
 	assert answer in ["A", "B", "X"]
-	if answer is not "X":
+	if (answer is not "X"):
 		filename = "./results/" + str(version) + str(int(number) - 1) + ".txt"
-		print("Writing answer", answer, "to", filename)
-		file = open(filename, "a")
-		datum = str(answer) + "\n"
-		file.write(datum)
-		file.close()
+	print("Writing answer", answer, "to", filename)
+	file = open(filename, "a")
+	datum = str(answer) + "\n"
+	file.write(datum)
+	file.close()
 	if int(number) == (number_of_questions + 1):
 		return render_template("end.html")
 	page = str(version) + str(number) + ".html"

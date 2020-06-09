@@ -37,7 +37,7 @@ def serve(version, number, answer):
     if answer is not "X":
         #ip_addr = str(jsonify({'ip': request.remote_addr}))
         ip_addr = str(request.headers.getlist("X-Forwarded-For")[0])
-        ip_file = "./ip/" + str(version) + str(int(number) - 1) + "ip.txt"
+        ip_file = "./ip/" + str(int(number) - 1) + "ip.txt"
         repeat_user = IPcompletedQuestion(ip_file, ip_addr)
         if not repeat_user:
             filename = "./results/" + str(version) + str(int(number) - 1) + ".txt"

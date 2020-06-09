@@ -4,6 +4,14 @@ app = Flask(__name__)
 
 number_of_questions = 8
 
+@app.route('/HackMainframe')
+def easterEgg():
+	return "You're in"
+
+@app.route('/end')
+def debrief():
+	return return_template("end.html")
+
 @app.route('/')
 def index():
 	rand = random.randint(1, 2)

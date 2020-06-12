@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 import random
 app = Flask(__name__)
 
@@ -9,6 +9,10 @@ def IPcompletedQuestion(filename, ip):
     contents = str(f.read())
     f.close()
     return ip in contents
+
+@app.route("/paper")
+def servePaper():
+    return redirect("https://docs.google.com/document/d/1xDDLbEQb2pLG5VQAK6Xhr8eFaq1RKqCCtLUbqS9hRss/edit?usp=sharing")
 
 @app.route('/HackMainframe')
 def easterEgg():
